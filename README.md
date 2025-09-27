@@ -49,12 +49,12 @@ graph
 2 --#8 Upload--> _{{Tsunami hits}} ---> 8((Die))
 3 --#9 Go Back--> _____{{trip}}--> 9((Injured))
 3 --#10 Stay Still---> 10([Surive])
-5 --#? Swim--> alksjdf{{Boar chase}} -->asd{{Pulled out}}--> rip{Rip Current}
-5 --#? Run--> ___________{{Be mauled}} --> ??????((Die))
-5 --#? Climb--> Survive
+5 --#11 Swim--> alksjdf{{Boar chase}} -->asd{{Pulled out}}--> rip{Rip Current}
+5 --#12 Run--> ___________{{Be mauled}} --> ??????((Die))
+5 --#13 Climb--> Survive
 6 --> 5
-rip --#? Swim Sideways--> ????????((Survive))
-rip --#? Swim Toward Shore--> ????????????{{Sucked out}} --> aklsdjlf((Die))
-7 --#_ Grab Computer--> __{{Tsunami hits}} --> ??((Die))
-7 --#_ Run---> ???[Survive]
+rip --#16 Swim Sideways--> ????????((Survive))
+rip --#17 Swim Toward Shore--> ????????????{{Sucked out}} --> aklsdjlf((Die))
+7 --#14 Grab Computer--> __{{Tsunami hits}} --> ??((Die))
+7 --#15 Run---> ???[Survive]
 ```
