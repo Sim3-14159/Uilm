@@ -33,3 +33,28 @@ Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. I
 > There is a small runway near the lab, and you know how to fly the plane. You could go back to the mainland, but you don’t want to leave your team behind if they choose not to come with you. After all, they will want to lose the research as much as you do. 
 > 
 > If you leave, you will probably lose all of your research, but if you don’t, you may risk your life. Any wrong move could be fatal.
+
+
+## 📚 Story line
+```mermaid
+graph
+
+0{#0 Start} --#1 Escape--> 1{Jole & Sarah won't come}
+0 --#2 Stay--> 2{Files not backed up}
+1 --#3 Up the Mountain--> 3{Centipede bite}
+1 --#4 Fly Away--> ______{{Research lost}} -->___{{Sarah & Jole die}} -->4(survive)
+1 --#5 Save It--> ________{{Lower time}} --> _______{{Save things}} --> 5{Wild boar}
+2 --#6 Leave--> 6{{Only time for mountain}}
+2 --#7 Flash Drive--> 7{Won't work}
+2 --#8 Upload--> _{{Tsunami hits}} ---> 8((Die))
+3 --#9 Go Back--> _____{{trip}}--> 9((Injured))
+3 --#10 Stay Still---> 10([Surive])
+5 --#? Swim--> alksjdf{{Boar chase}} -->asd{{Pulled out}}--> rip{Rip Current}
+5 --#? Run--> ___________{{Be mauled}} --> ??????((Die))
+5 --#? Climb--> Survive
+6 --> 5
+rip --#? Swim Sideways--> ????????((Survive))
+rip --#? Swim Toward Shore--> ????????????{{Sucked out}} --> aklsdjlf((Die))
+7 --#_ Grab Computer--> __{{Tsunami hits}} --> ??((Die))
+7 --#_ Run---> ???[Survive]
+```
