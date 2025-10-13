@@ -2,7 +2,7 @@
 **Uilm** is a nonlinear interacitve survival game where you are trapped on a tropical island.
 
 ## 🎮 How to Play
-Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. If you want to see the code for it yourself, the file is [`index.html`](index.html) The code was created in [*Twine*](https://twinery.org) and converted to html.
+Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. If you want to see the code for it yourself, the file is [`index.html`](index.html) The code was created in [*Twine*](https://twinery.org) and converted to *HTML*.
 
 ## 🗺️ Plot
 
@@ -28,7 +28,7 @@ Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. I
 > 
 >> <strong> $$\color{red}{\text{Emergency Alert}}$$ <strong> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  `4hrs ago`
 >> 
->>  The National Weather Service has issued a TSUNAMI WARNING. A series of powerful waves and strong currents may impact coasts near you. You are in danger. Get away from coastal waters. Move to high ground or inland now. Keep away from the coast until local officials say it is safe to return.
+>> $\color{red}{\text{The National Weather Service has issued a TSUNAMI WARNING.}}$ $\color{red}{\text{A series of powerful waves and strong currents may impact coasts near you.}}$ $\color{red}{\text{You are in danger. Get away from coastal waters. Move to high ground or inland now.}}$ $\color{red}{\text{Keep away from the coast until local officials say it is safe to return.}}$
 >
 > There is a small runway near the lab, and you know how to fly the plane. You could go back to the mainland, but you don’t want to leave your team behind if they choose not to come with you. After all, they will want to lose the research as much as you do. 
 > 
