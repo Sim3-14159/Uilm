@@ -26,7 +26,7 @@ Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. I
 > 
 > This morning, you feel a few tremors. You think nothing of it, as they aren’t uncommon near the tectonic boundaries, until you get an emergency alert from the weather station on O’ahu. You look at your phone:
 > 
->> ***Emergency Alert*** &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  `4hrs ago`
+>> <strong> $$\color{red}{\text{Emergency Alert}}$$ <strong> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  `4hrs ago`
 >> 
 >>  The National Weather Service has issued a TSUNAMI WARNING. A series of powerful waves and strong currents may impact coasts near you. You are in danger. Get away from coastal waters. Move to high ground or inland now. Keep away from the coast until local officials say it is safe to return.
 >
