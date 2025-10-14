@@ -1,8 +1,21 @@
 # Uilm
+
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-%233E687A" alt="Project License Badge">
+</p>
+
+<div align="center">
+  
+  ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+  ![HTML](https://img.shields.io/badge/HTML-%23123456.svg?style=for-the-badge&logo=HTML&logoColor=%23F7DF1E)
+   ![CSS](https://img.shields.io/badge/CSS-%2347133B.svg?style=for-the-badge&logo=css&logoColor=%23ffccdd)
+</div>
+<br>
+
 **Uilm** is a nonlinear interacitve survival game where you are trapped on a tropical island.
 
 ## 🎮 How to Play
-Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. If you want to see the code for it yourself, the file is [`index.html`](index.html) The code was created in [*Twine*](https://twinery.org) and converted to *HTML*.
+Just go to [this website](https://Sim3-14159.github.io/Uilm) to play the game. If you want to see the code for it yourself, the file is [`index.html`](index.html) The code was created in [*Twine*](https://twinery.org) and converted to *HTML*. You can also pull the repo locally:
 
 ## 🗺️ Plot
 
