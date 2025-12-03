@@ -7,7 +7,7 @@
 <div align="center">
   
   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-  ![HTML](https://img.shields.io/badge/HTML-%23123456.svg?style=for-the-badge&logo=HTML&logoColor=%23F7DF1E)
+  ![HTML](https://img.shields.io/badge/HTML-%23123456.svg?style=for-the-badge&logo=HTML5&logoColor=blue)
    ![CSS](https://img.shields.io/badge/CSS-%2347133B.svg?style=for-the-badge&logo=css&logoColor=%23ffccdd)
 </div>
 <br>
