@@ -121,6 +121,7 @@ tw-link:hover {
   border: 1px solid teal;
   padding: 4px 8px;
   border-radius: 5px;
+  transition: 0.2s ease;
 }
 
 .end tw-link:hover {
@@ -318,9 +319,82 @@ div.big-image-table {
 
 ol li {
   padding-bottom: 10px;
+}
+
+/* links at end of story */
+
+.link-container tw-expression {
+position: absolute;
+top: 0;
+z-index: 12;
+transition: 0.3s ease;
+}
+
+.link-container tw-expression:nth-child(3) {
+top: 1em;
+z-index: 11;
+opacity: 0.3;
+}
+
+.link-container tw-expression:nth-child(6) {
+top: 2em;
+z-index: 10;
+opacity: 0.1;
+}
+
+.link-container:hover tw-expression:nth-child(3) {
+top: 3em;
+opacity: 1;
+}
+
+.link-container:hover tw-expression:nth-child(6) {
+top: 6em;
+opacity: 1;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">console.log("Please view in fullscreen mode for best experience. Type %cdocument.body.requestFullscreen()" + "%c to use, if button fails to work.",
   "background-color: #f2f2f2; padding: 2px 4px; border-radius: 3px; font-family: monospace; color: #333;", ""
 );
+
+
+window.goFullscreen = function goFullscreen(element = document.documentElement) {
+    if (!element) element = document.documentElement;
+
+    // 1. Try WebKit first (important for old iPads)
+    try {
+        if (element.webkitRequestFullscreen) {
+            return element.webkitRequestFullscreen();
+        }
+    } catch (e) {}
+
+    // 2. Then try standard 
+    try {
+        if (element.requestFullscreen) {
+            return element.requestFullscreen().catch(() => {});
+        }
+    } catch (e) {}
+
+    // 3. Old Firefox
+    try {
+        if (element.mozRequestFullScreen) {
+            return element.mozRequestFullScreen();
+        }
+    } catch (e) {}
+
+    // 4. Old MS Edge / IE
+    try {
+        if (element.msRequestFullscreen) {
+            return element.msRequestFullscreen();
+        }
+    } catch (e) {}
+
+    // 5. iOS video fallback
+    try {
+        if (element.webkitEnterFullscreen) {
+            return element.webkitEnterFullscreen();
+        }
+    } catch (e) {}
+
+    return false;
+}
 </script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="water" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="sky" color="purple"></tw-tag><tw-passagedata pid="1" name="Uilm" tags="" position="900,100" size="100,100">&lt;div style=&quot;font-size: 3em; display: flex; justify-content: center; align-items: center; position: relative;&quot;&gt;
 (text-style:&quot;bold&quot;, &quot;expand&quot;)[
   &lt;span class=&quot;title&quot;&gt;Uilm&lt;/span&gt;&lt;sub style=&quot;font-size: 0.3em; margin-left: 0.5em;&quot;&gt;by Sim3-14159&lt;/sub&gt;]
@@ -339,7 +413,7 @@ ol li {
 &lt;/div&gt;
 
 
-(dialog: bind _selectedButton, &quot;Please view in fullscreen for best experience.&quot;, &quot;&lt;a&gt;Cancel&lt;/a&gt;&quot;, &quot;&lt;a onclick=&#39;if (document.body.requestFullscreen) {document.body.requestFullscreen();} else {alert(\&quot;Oops... It looks like you can&amp;#39;t enter fullscreen mode.\&quot;)}&#39; class=&#39;dialog-a&#39;&gt;&amp;ensp;&amp;ensp;&amp;ensp;OK&amp;ensp;&amp;ensp;&amp;ensp;&lt;/a&gt;&quot;) &lt;!--_selectedButton is not used--&gt;
+(dialog: bind _selectedButton, &quot;Please view in fullscreen for best experience.&quot;, &quot;&lt;a&gt;Cancel&lt;/a&gt;&quot;, &quot;&lt;a onclick=&#39;goFullscreen()&#39; class=&#39;dialog-a&#39;&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;OK&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&lt;/a&gt;&quot;) &lt;!--_selectedButton is not used--&gt;
 
 </tw-passagedata><tw-passagedata pid="2" name="0—Uilm" tags="" position="900,300" size="100,100">## &amp;#35;0—Uilm
 
@@ -448,7 +522,7 @@ At least he gets the point, you think.
 
 “But we only have—”
 
-You can’t tell who is talking. Out of the corner of your eye, you see Sarah picking up files, stacks of papers, and samples of //C. uilm//.
+You can’t tell who is talking. Out of the corner of your eye, you see Sarah picking up files, stacks of papers, and samples of *C. uilm*.
 
 “I think we should save our research,” you hear her say. “Anybody with me?”
 
@@ -501,7 +575,7 @@ function doSomeStuff() {
 	document.getElementById(&quot;dialog&quot;).style.display = &quot;block&quot;;
     container.textContent = `“${input}”
 
-“How could you say that youʼd leave us like that!” Jole says, slightly more exasperated than suitable to the situation.
+“How could you say that to us!” Jole says, awe and exasperation on the tip of his tounge.
 
 “Are you really going to?” Sarah says.
   `;
@@ -883,8 +957,11 @@ The weight of the world falls on your head.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] 
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;
 ]]
       ]
     ]
@@ -1018,7 +1095,7 @@ const timer = setInterval(update, 30);
 
 This story was written in &lt;a href=&quot;https://twinery.org/reference/en/&quot;&gt;Twine&lt;/a&gt;, using the story format &lt;a href=&quot;https://twine2.neocities.org&quot;&gt;Harlowe&lt;/a&gt;.
 
-Want to create a story like this? You can &lt;code class=&quot;choice&quot;&gt;make your own &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://twinery.org/2&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt; or view it on GitHub &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://github.com/Sim3-14159/Uilm&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt;.&lt;/code&gt; Have fun!</tw-passagedata><tw-passagedata pid="14" name="Game Over (Boar)" tags="" position="1900,900" size="100,100">Something warm and hard hits you, and you trip.
+Want to create a story like this? You can &lt;code class=&quot;choice&quot;&gt;make your own &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://twinery.org/2&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt; or view it on GitHub &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://github.com/Sim3-14159/Uilm&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt;.&lt;/code&gt; Have fun!</tw-passagedata><tw-passagedata pid="14" name="Game Over (Boar)" tags="" position="1700,900" size="100,100">Something warm and hard hits you, and you trip.
 
 You feel teeth burrowing themselves into your thigh, then more in your arm, then your back. You try to turn around and get up, but you cannot. You feel something wet and warm trickling down your forehead.
 
@@ -1036,17 +1113,18 @@ The world slowly fades away into darkness, and you embrace it.
 
 </tw-passagedata><tw-passagedata pid="15" name="Notes" tags="" position="1100,200" size="100,100">## Notes
 
-The inspiration for the story came vaguely from &lt;a href=&quot;https://en.wikipedia.org/wiki/Jurassic_Park_(novel)&quot;&gt;*Jurassic Park*&lt;/a&gt;, by Michael Crichton, where a group of people find themselves fighting for survival on a tropical island. I chose a similar setting for my story, but very different plot elements: roundworms.
+The inspiration for the story came vaguely from *Jurassic Park*, by Michael Crichton, where a group of people find themselves fighting for survival on a tropical island. I chose a similar setting for my story, but very different plot elements: roundworms.
 
 I was inspired to use roundworms for three reasons: 
-&lt;ol style=&quot;gap: 10px;&quot;&gt;&lt;li&gt;I had recently read *Antarctica!* by Lily Simpson. In that book, a medicine was created with roundworms. This gave me the idea of using *uilm*&#39;s&lt;/li&gt;&lt;li&gt;I had recently watched *Jurassic World Rebirth* (Yes, I am a *Jurassic* fan, but I was dissapointed by this one), where the cure to a disease &lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;
-Roundworms of the genus *Chordodes* have many remarkable traits, including HGT and biostasis. Although *C. uilm* is not a real species. Multiple other roundworms have similar—if not the same—traits and abilities of *C. uilm*. Just google &lt;a href=&quot;https://google.com/search?q=horsehair+worms+HGT&quot;&gt;“horsehair worms HGT”&lt;/a&gt; for more details.
+&lt;ol style=&quot;gap: 10px;&quot;&gt;&lt;li&gt;I had recently read *Antarctica!* by Lily Simpson. In that book, a medicine was created with roundworms. This gave me the idea of using a fictional roundworm I called *Chordodes uilm*.&lt;/li&gt;&lt;li&gt;I had recently watched *Jurassic World Rebirth* (Yes, I am a *Jurassic* fan, but I was disappointed by this one), where the cure to a disease was found in DNA. I liked this idea, but instead of using another animalʼs DNA, which would present many challenges (e.g. incompatible number of chromosomes, genes controlling different traits etc.), I made my story so it would be more plausible; not using *uilm*ʼs DNA as a cure, but using *uilm*ʼs abilities to &#39;&#39;find&#39;&#39; the cure.&lt;/li&gt;&lt;li&gt;I had already done a few presentations on hairworms (a specific kind of roundworm) and already knew lots of things about them.&lt;/li&gt;&lt;/ol&gt;
+Roundworms of the genus *Chordodes* have many remarkable traits, including &lt;a href=&quot;https://en.wikipedia.org/wiki/Horizontal_gene_transfer&quot;&gt;horizontal gene transfer&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Biostasis&quot;&gt;biostasis&lt;/a&gt;. Although *C. uilm* is not a real species, many other roundworms have the same traits and abilities of *C. uilm*. Just google &lt;a href=&quot;https://google.com/search?q=horsehair+worms+HGT&quot;&gt;“horsehair worms HGT”&lt;/a&gt; for more details.
 
 Almost all of the events in this story are based off of things that have commonly happened in real life: wild boar maulings, riptides after tsunamis, incompatible file types on flash drives, etc.
 
-The timing of how long it would take for a tsunami to reach the Reysheys has been thoroughly researched and calculated, as well as other elements.
+The timing of how long it would take for a tsunami to reach the Reysheys has been thoroughly researched and calculated, as well as other elements in the story.
 
-If you have any other questions about this story, feel free to &lt;a href=&quot;https://github.com/Sim3-14159/Uilm/issues/new?title=Question%20about%20Uilm:%20[question%20here]&amp;body=@Sim3-14159...&quot;&gt;raise an issue&lt;/a&gt; addressed to me on GitHub.</tw-passagedata><tw-passagedata pid="16" name="12—Run" tags="" position="1200,900" size="100,100">## &amp;#35;12—Run
+If you have any other questions about this story, feel free to talk about it &lt;a href=&quot;https://github.com/Sim3-14159/Uilm/discussions/1#discussion_comment_box
+&quot;&gt;here&lt;/a&gt; on GitHub.</tw-passagedata><tw-passagedata pid="16" name="12—Run" tags="" position="1200,900" size="100,100">## &amp;#35;12—Run
 
 //It’s too late,// you think to yourself, //I don’t have time to go back to the lab.//
 
@@ -1062,8 +1140,11 @@ The world slowly fades away into darkness, and you embrace it.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="17" name="11—Swim" tags="water" position="1100,900" size="100,100">## &amp;#35;11—Swim
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="11—Swim" tags="water" position="1100,900" size="100,100">## &amp;#35;11—Swim
 
 You jump into the dirty water and swim as fast as you can away from the beach. To your dismay, you see the boars following you into the water! You turn your head in front of you again.
 
@@ -1104,8 +1185,11 @@ You write a book about your adventure, and you call it //**Uilm**//.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,325" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,400" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
 let isIn = false;
 const elements = document.URL.split(&quot;/&quot;);
 
@@ -1117,7 +1201,7 @@ if (!isIn) {
 	document.getElementById(&quot;the-footer&quot;).style.display = &quot;none&quot;;
 }
 &lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,75" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky" position="400,825" size="100,100">## &amp;#35;4—Fly Away
+</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,200" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky" position="400,825" size="100,100">## &amp;#35;4—Fly Away
 
 You walk away. You feel sick, sweaty, and cold. Henry follows.
 
@@ -1141,8 +1225,11 @@ Later, you learn that they died, hours after you left.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="22" name="14—Straight Back" tags="water" position="1000,1025" size="100,100">## &amp;#35;14—Straight Back
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="14—Straight Back" tags="water" position="1000,1025" size="100,100">## &amp;#35;14—Straight Back
 
 You can’t waste any time, even if it means going through the boars.
 
@@ -1166,8 +1253,11 @@ Then stop.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="23" name="15—To the Side" tags="water" position="1125,1025" size="100,100">## &amp;#35;15—To the Side
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="15—To the Side" tags="water" position="1125,1025" size="100,100">## &amp;#35;15—To the Side
 
 You arenʼt stupid; you know that if you find yourself in a riptide, you swim to the side. So you do that, and promptly find yourself drawn far out from shore. A cold sweat starts, but hardly before it stops.
 
@@ -1195,16 +1285,55 @@ You write a book about your adventure, and you call it //**Uilm**//.
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="24" name="Leave1" tags="" position="600,825" size="100,100">## &amp;#35;4—Up the Mountain
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Leave1" tags="" position="600,825" size="100,100">## &amp;#35;4—Up the Mountain
 
-You trudge up the mountain, determined. Henry follows you, silently.
+You trudge up the mountain. Henry follows you, silently.
 
 You turn back for a moment; everything looks peaceful and calm.
 
 But you know it&#39;s not.
 
-You hike up with Henry, through the tufts of brush and the decaying leaves, 
+You hike up with Henry, through the tufts of brush and the decaying leaves, trudging through your mind as much as you are trudging through the dirt on the ground. Your body feels like expanding foam, slowly hardening, stiffening; each step you take forces an ångström of air from your lungs, each breath you breathe removes a single neuron from your brain, each thought you think weakens your legs, takes an ounce of blood from your veins, like a spider, like a tick, slowly draining, slowly hardening, slowly expanding.
+
+Your hands slip into your pockets.
+
+You take a step forward.
+
+Then another.
+
+Then another.
+
+Over a root.
+
+Over a log.
+
+You feel something squirming under your shoe, a piercing, then a hot anvil falling onto your right ankle. 
+
+A scream boils from your foot, and escapes as burning vapor out of your lungs.
+
+You fall onto the ground, with your hand half out of your pocket, barely a cushon to your fall.
+
+For a quarter of a moment before you hit the ground, you see the back end of a giant centipede running away, hiding back under the log it came out of.
+
+Your face contorts under the red hot agony of the bite. Henry comes to your aid, but is unable to do anything to help the situation.
+
+Minutes of excruciation pass, and with each passing minute, your distress worsens. 
+
+Minutes and minutes. 
+
+The wave advances. 
+
+Minutes and minutes. 
+
+(text-style:&quot;blur&quot;)[Se]a(text-style:&quot;blur&quot;,&quot;expand&quot;)[ring p]ain(text-style:&quot;blur&quot;,&quot;expand&quot;)[, co]n(text-style:&quot;blur&quot;, &quot;condense&quot;)[st](text-style:&quot;blur&quot;,&quot;expand&quot;)[a]nt st(text-style:&quot;blur&quot;,&quot;expand&quot;)[rain, st]u(text-style:&quot;blur&quot;,&quot;expand&quot;)[f]f(text-style:&quot;blur&quot;,&quot;expand&quot;)[y] b(text-style:&quot;blur&quot;,&quot;expand&quot;)[rai]n. 
+
+|down-arrow&gt;[
+    (link: &#39;(align: &quot;=&gt;&lt;=&quot;)[&lt;span class=&quot;down-arrow&quot;&gt;➤&lt;/span&gt;]&#39;)[
+        (replace: ?down-arrow)[Text]]]
 
 
 
@@ -1212,8 +1341,11 @@ You hike up with Henry, through the tufts of brush and the decaying leaves,
 
 
 (button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] </tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
 
 </tw-passagedata><tw-passagedata pid="26" name="17—Sorry, Computer" tags="" position="875,950" size="100,100">## &amp;#35;16—Sorry, Computer, I have to go so I donʼt drown in a Tsunami and Die, because I Would Rather be Alive than Dead
 
