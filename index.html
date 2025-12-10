@@ -324,32 +324,105 @@ ol li {
 /* links at end of story */
 
 .link-container tw-expression {
-position: absolute;
-top: 0;
-z-index: 12;
-transition: 0.3s ease;
+  position: absolute;
+  transition: 0.3s ease;
 }
 
 .link-container tw-expression:nth-child(3) {
-top: 1em;
-z-index: 11;
-opacity: 0.3;
+  z-index: 12;
+  opacity: 1;
+  top: 0;
 }
 
 .link-container tw-expression:nth-child(6) {
-top: 2em;
-z-index: 10;
-opacity: 0.1;
+  z-index: 11;
+  opacity: 0.3;
+  top: 1em;
+}
+
+.link-container tw-expression:nth-child(9) {
+  z-index: 10;
+  opacity: 0.1;
+  top: 2em;
+}
+
+.link-container:hover tw-expression {
+  opacity: 1;
 }
 
 .link-container:hover tw-expression:nth-child(3) {
-top: 3em;
-opacity: 1;
+  top: 0;
 }
 
 .link-container:hover tw-expression:nth-child(6) {
-top: 6em;
-opacity: 1;
+  top: 2.5em;
+}
+
+.link-container:hover tw-expression:nth-child(9) {
+  top: 5em;
+}
+
+
+
+/* fullscreen notification */
+/* Popup container */
+#popup-notification {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 470px;
+  height: 200px;
+  background: #0a0a0a;
+  padding: 20px 25px;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 9999;
+}
+
+/* Popup heading */
+#popup-notification h4 {
+  margin: 0 0 15px;
+  font-size: 30px;
+  color: #ccc;
+  font-family: Georgia, serif;
+}
+
+/* Buttons container */
+#popup-notification button {
+  font-size: 20px;
+  padding: 8px 15px;
+  margin: 8px 5px 0;
+  border: 3px solid teal;
+  border-radius: 1px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  color: teal;
+  transition: 0.07s linear;
+}
+
+#popup-notification button:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+  font-weight: bold;
+  color: cyan;
+  border-color: cyan;
+}
+
+#popup-notification-overlay {
+  display: none;
+  position: fixed; /* no scroll */
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9998;     
+  top: 0;
+  left: 0;
+  width: 100vw;          
+  height: 100vh;  
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">console.log("Please view in fullscreen mode for best experience. Type %cdocument.body.requestFullscreen()" + "%c to use, if button fails to work.",
   "background-color: #f2f2f2; padding: 2px 4px; border-radius: 3px; font-family: monospace; color: #333;", ""
 );
@@ -395,7 +468,50 @@ window.goFullscreen = function goFullscreen(element = document.documentElement) 
 
     return false;
 }
-</script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="water" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="sky" color="purple"></tw-tag><tw-passagedata pid="1" name="Uilm" tags="" position="900,100" size="100,100">&lt;div style=&quot;font-size: 3em; display: flex; justify-content: center; align-items: center; position: relative;&quot;&gt;
+
+
+////////////// popup notification /////////////
+let notificationPressed = false;
+
+function showPopup() {
+  document.getElementById('popup-notification').style.display = 'block'; 
+  document.getElementById('popup-notification-overlay').style.display = 'block';
+  notificationPressed = false;
+}
+
+window.showPopup = showPopup;
+
+function hidePopup() {
+  document.getElementById('popup-notification').style.display = 'none'; 
+  document.getElementById('popup-notification-overlay').style.display = 'none';
+  notificationPressed = true;
+}
+
+window.hidePopup = hidePopup;
+
+if (notificationPressed) {
+  setTimeout(hidePopup, 10);
+} else {
+  setTimeout(showPopup, 10); // setTimeout to let content load first
+}
+
+
+
+
+document.addEventListener('mouseover', function(e) {
+  if (e.target.closest('.link-container')) {
+    const container = document.querySelector("tw-story");
+    
+    if (container) {
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  }
+});
+
+</script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="water" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="green"></tw-tag><tw-tag name="sky" color="purple"></tw-tag><tw-passagedata pid="1" name="Uilm" tags="" position="900,100" size="100,100">&lt;div style=&quot;font-size: 3em; display: flex; justify-content: center; align-items: center; position: relative;&quot;&gt;
 (text-style:&quot;bold&quot;, &quot;expand&quot;)[
   &lt;span class=&quot;title&quot;&gt;Uilm&lt;/span&gt;&lt;sub style=&quot;font-size: 0.3em; margin-left: 0.5em;&quot;&gt;by Sim3-14159&lt;/sub&gt;]
 &lt;/div&gt;
@@ -411,9 +527,6 @@ window.goFullscreen = function goFullscreen(element = document.documentElement) 
 (size:0.9)+(align:&quot;&lt;==&quot;)[&lt;span class=&quot;start&quot;&gt;[[Notes]]&lt;/span&gt;]
 (size:0.9)+(align:&quot;&lt;==&quot;)[&lt;span class=&quot;start&quot;&gt;[[Code]]&lt;/span&gt;]&lt;/div&gt;
 &lt;/div&gt;
-
-
-(dialog: bind _selectedButton, &quot;Please view in fullscreen for best experience.&quot;, &quot;&lt;a&gt;Cancel&lt;/a&gt;&quot;, &quot;&lt;a onclick=&#39;goFullscreen()&#39; class=&#39;dialog-a&#39;&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;OK&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&lt;/a&gt;&quot;) &lt;!--_selectedButton is not used--&gt;
 
 </tw-passagedata><tw-passagedata pid="2" name="0—Uilm" tags="" position="900,300" size="100,100">## &amp;#35;0—Uilm
 
@@ -863,7 +976,7 @@ You unlock the computer; open up the app that sequences the genes.
 
 In the top left corner of the window, there is a button. You click it.
 
-(link: &#39;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;button id=&quot;uploadBtn&quot; style=&quot;cursor: pointer; color: #081410; background-color: #A2BDBD; border-radius: 0px; font-family: monospace; font-size: 1.5em; border-width: 5px;&quot;&gt;Upload All&lt;/button&gt;&#39;)[
+(link: &#39;&lt;br&gt;&lt;button id=&quot;uploadBtn&quot; style=&quot;cursor: pointer; color: #081410; background-color: #A2BDBD; border-radius: 0px; font-family: monospace; font-size: 1.5em; border-width: 5px;&quot;&gt;Upload All&lt;/button&gt;&#39;)[
   (replace: ?myHook)[&lt;button id=&quot;uploadBtn&quot; style=&quot;cursor: pointer; color: #081410; background-color: #A2BDBD; border-radius: 0px; font-family: monospace; font-size: 1.5em; border-width: 5px;&quot;&gt;Upload All&lt;/button&gt;
   
   
@@ -933,11 +1046,8 @@ The ground shakes, the walls splinter; a millisecond passes in an hour, and you 
 
 |down-arrow&gt;[
     (link: &#39;(align:&quot;=&gt;&lt;=&quot;)[&lt;span class=&quot;down-arrow&quot;&gt;➤&lt;/span&gt;]&#39;)[
-        (replace: ?down-arrow)[
-             
-             (live: 0s)[
-	(replace: ?slamText)[(text-style:&quot;bold&quot;)[&lt;span class=&quot;slam&quot;&gt;Whack!&lt;/span&gt;]]
-	(stop:)
+        (replace: ?down-arrow)[         
+             (live: 0s)[(replace: ?slamText)[(text-style:&quot;bold&quot;)[&lt;span class=&quot;slam&quot;&gt;Whack!&lt;/span&gt;]](stop:)
 ]
 |slamText&gt;[
 	&lt;!-- placeholder --&gt;
@@ -961,14 +1071,7 @@ The weight of the world falls on your head.
 (button:&quot;==X==&quot;)[[Notes]] 
 (button:&quot;==X==&quot;)[[Credits]] 
 (button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;
-]]
-      ]
-    ]
-]
-
-|myHook&gt;[]
-</tw-passagedata><tw-passagedata pid="11" name="8—Flash Drive" tags="" position="1000,700" size="100,100">## &amp;#35;8—Flash Drive
+&lt;/div&gt;]]]]]|myHook&gt;[]</tw-passagedata><tw-passagedata pid="11" name="8—Flash Drive" tags="" position="1000,700" size="100,100">## &amp;#35;8—Flash Drive
 
 You frantically search your surroundings for a flash drive; you saw Jole with one just yesterday.
 
@@ -1189,7 +1292,7 @@ You write a book about your adventure, and you call it //**Uilm**//.
 (button:&quot;==X==&quot;)[[Notes]] 
 (button:&quot;==X==&quot;)[[Credits]] 
 (button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,400" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,375" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
 let isIn = false;
 const elements = document.URL.split(&quot;/&quot;);
 
@@ -1201,7 +1304,7 @@ if (!isIn) {
 	document.getElementById(&quot;the-footer&quot;).style.display = &quot;none&quot;;
 }
 &lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,200" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky" position="400,825" size="100,100">## &amp;#35;4—Fly Away
+</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,125" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky" position="400,825" size="100,100">## &amp;#35;4—Fly Away
 
 You walk away. You feel sick, sweaty, and cold. Henry follows.
 
@@ -1329,11 +1432,29 @@ The wave advances.
 
 Minutes and minutes. 
 
-(text-style:&quot;blur&quot;)[Se]a(text-style:&quot;blur&quot;,&quot;expand&quot;)[ring p]ain(text-style:&quot;blur&quot;,&quot;expand&quot;)[, co]n(text-style:&quot;blur&quot;, &quot;condense&quot;)[st](text-style:&quot;blur&quot;,&quot;expand&quot;)[a]nt st(text-style:&quot;blur&quot;,&quot;expand&quot;)[rain, st]u(text-style:&quot;blur&quot;,&quot;expand&quot;)[f]f(text-style:&quot;blur&quot;,&quot;expand&quot;)[y] b(text-style:&quot;blur&quot;,&quot;expand&quot;)[rai]n. 
+(text-style:&quot;blur&quot;)[Se]a(text-style:&quot;blur&quot;,&quot;expand&quot;)[ring p]ain(text-style:&quot;blur&quot;,&quot;expand&quot;)[, co]n(text-style:&quot;blur&quot;, &quot;condense&quot;)[st](text-style:&quot;blur&quot;,&quot;expand&quot;)[a]nt st(text-style:&quot;blur&quot;,&quot;expand&quot;)[rain, st]u(text-style:&quot;blur&quot;)[f]f(text-style:&quot;blur&quot;,&quot;expand&quot;)[y] b(text-style:&quot;blur&quot;,&quot;expand&quot;)[rai]n. 
 
 |down-arrow&gt;[
     (link: &#39;(align: &quot;=&gt;&lt;=&quot;)[&lt;span class=&quot;down-arrow&quot;&gt;➤&lt;/span&gt;]&#39;)[
-        (replace: ?down-arrow)[Text]]]
+        (replace: ?down-arrow)[You hear the sound of a waterfall, coming nearer and nearer, getting louder and louder, a small shout, then, a crash—not one that subsides, but a continous, loud roar.
+
+Wood tearing, rebar bending. Your ankle seething. Your own voice screaming.
+
+You can&#39;t handle the pain, the loss, the misery: //My career is gone, Iʼve been bitten by a highly toxic centipede, my co-workers probably died, and Iʼm probably next.//
+
+Hours pass in pain as the waves comes back in surges, each breaking what&#39;s already been broken. You see no sign of Sarah or Jole or a rescue helicopter.
+
+The day comes to an end, and you endure all night, the pain slowly decreasing.
+
+The next day, a rescue helicopter comes. No traces of Sarah or Jole are found.
+
+You fly away, then you land.
+
+Days pass without news.
+
+The government deems the island unsafe until further notice, and shuts down the entire &lt;em&gt;Chordotes Uilm&lt;/em&gt; project.
+
+Later, you learn that they died, hours after you left.
 
 
 
@@ -1345,11 +1466,11 @@ Minutes and minutes.
 (button:&quot;==X==&quot;)[[Notes]] 
 (button:&quot;==X==&quot;)[[Credits]] 
 (button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
+&lt;/div&gt;]]]</tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
 
 </tw-passagedata><tw-passagedata pid="26" name="17—Sorry, Computer" tags="" position="875,950" size="100,100">## &amp;#35;16—Sorry, Computer, I have to go so I donʼt drown in a Tsunami and Die, because I Would Rather be Alive than Dead
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="27" name="_HEADER" tags="header" position="200,250" size="100,100">&lt;div id=&quot;popup-notification-overlay&quot;&gt;&lt;/div&gt;&lt;div id=&quot;popup-notification&quot;&gt;&lt;h4&gt;Please view in fullscreen mode for best experience&lt;/h4&gt;&lt;button onclick=&quot;goFullscreen(); hidePopup()&quot;&gt;OK&lt;/button&gt;&lt;button onclick=&quot;hidePopup()&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
