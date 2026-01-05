@@ -328,22 +328,32 @@ ol li {
   transition: 0.3s ease;
 }
 
+.link-container tw-expression:hover {
+  transform: scale(1.05);
+}
+
 .link-container tw-expression:nth-child(3) {
   z-index: 12;
-  opacity: 1;
+  opacity: 0.8;
   top: 0;
 }
 
 .link-container tw-expression:nth-child(6) {
   z-index: 11;
-  opacity: 0.3;
+  opacity: 0.27;
   top: 1em;
 }
 
 .link-container tw-expression:nth-child(9) {
   z-index: 10;
-  opacity: 0.1;
+  opacity: 0.14;
   top: 2em;
+}
+
+.link-container tw-expression:nth-child(12) {
+  z-index: 10;
+  opacity: 0.09;
+  top: 3em;
 }
 
 .link-container:hover tw-expression {
@@ -362,6 +372,9 @@ ol li {
   top: 5em;
 }
 
+.link-container:hover tw-expression:nth-child(12) {
+  top: 7.5em;
+}
 
 
 /* fullscreen notification */
@@ -423,6 +436,15 @@ ol li {
   left: 0;
   width: 100vw;          
   height: 100vh;  
+}
+
+tw-sidebar {
+  left: 5em;
+  width: 3em;
+  position: fixed;
+  top: 3em;
+  display: block;
+  flex-direction: column;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">console.log("Please view in fullscreen mode for best experience. Type %cdocument.body.requestFullscreen()" + "%c to use, if button fails to work.",
   "background-color: #f2f2f2; padding: 2px 4px; border-radius: 3px; font-family: monospace; color: #333;", ""
 );
@@ -511,9 +533,9 @@ document.addEventListener('mouseover', function(e) {
   }
 });
 
-</script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="water" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="green"></tw-tag><tw-tag name="sky" color="purple"></tw-tag><tw-passagedata pid="1" name="Uilm" tags="" position="900,100" size="100,100">&lt;div style=&quot;font-size: 3em; display: flex; justify-content: center; align-items: center; position: relative;&quot;&gt;
+</script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="water" color="blue"></tw-tag><tw-tag name="title" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="green"></tw-tag><tw-tag name="sky" color="purple"></tw-tag><tw-tag name="end" color="orange"></tw-tag><tw-tag name="special-end" color="yellow"></tw-tag><tw-passagedata pid="1" name="Uilm" tags="" position="900,100" size="100,100">&lt;div style=&quot;font-size: 3em; display: flex; justify-content: center; align-items: center; position: relative;&quot;&gt;
 (text-style:&quot;bold&quot;, &quot;expand&quot;)[
-  &lt;span class=&quot;title&quot;&gt;Uilm&lt;/span&gt;&lt;sub style=&quot;font-size: 0.3em; margin-left: 0.5em;&quot;&gt;by Sim3-14159&lt;/sub&gt;]
+  &lt;span class=&quot;title&quot;&gt;Uilm&lt;/span&gt;&lt;sub style=&quot;font-size: 0.3em; margin-left: 0.5em;&quot;&gt;by Simyon Hein&lt;/sub&gt;]
 &lt;/div&gt;
 
 
@@ -674,7 +696,7 @@ All of the DNA samples, the computer models, the protein structure files; all of
 
 &lt;p id=&quot;container1&quot; style=&quot;white-space: pre-line;&quot;&gt;You chose to leave. //It may be a hard choice, but it&#39;s the right choice,// you tell yourself, //Itʼs not really leaving, anyway. Itʼs really just going a little ways away from the shore, for safety.//
 
-&lt;span id=&quot;main-p&quot;&gt;You look at Henry and say,&lt;/span&gt;
+&lt;span id=&quot;main-p&quot;&gt;You look at Jole and say,&lt;/span&gt;
 
 &lt;span style=&quot;vertical-align: top&quot;&gt;“&lt;/span&gt;&lt;textarea id=&quot;say&quot; style=&quot;width: calc(99% - 100px);&quot; rows=&quot;5&quot; placeholder=&quot;What do you want to say?&quot;&gt;&lt;/textarea&gt;&lt;span style=&quot;vertical-align: top&quot;&gt;”&lt;/span&gt;
 
@@ -710,7 +732,7 @@ doSomeStuff();
 	document.getElementById(&quot;dialog&quot;).style.display = &quot;none&quot;;
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="4—Fly Away" tags="" position="400,700" size="100,100">## &amp;#35;4—Fly Away
 
-&lt;p id=&quot;container1&quot; style=&quot;white-space: pre-line;&quot;&gt;&lt;span id=&quot;main-p&quot;&gt;You chose to leave. It may be a hard choice, but it&#39;s the right choice. You look at Henry and say,&lt;/span&gt;
+&lt;p id=&quot;container1&quot; style=&quot;white-space: pre-line;&quot;&gt;&lt;span id=&quot;main-p&quot;&gt;You chose to leave. It may be a hard choice, but it&#39;s the right choice. You look at Jole and say,&lt;/span&gt;
 
 &lt;span style=&quot;vertical-align: top&quot;&gt;“&lt;/span&gt;&lt;textarea id=&quot;say&quot; style=&quot;width: calc(99% - 100px);&quot; rows=&quot;5&quot; placeholder=&quot;What do you want to say?&quot;&gt;&lt;/textarea&gt;&lt;span style=&quot;vertical-align: top&quot;&gt;”&lt;/span&gt;
 
@@ -962,7 +984,7 @@ You have (font: &quot;Seven Segment&quot;)+(color:red)[|countdown&gt;[$timer $pl
 ]]
       ]
 
-|myHook&gt;[]</tw-passagedata><tw-passagedata pid="10" name="9—Upload" tags="water" position="1400,700" size="100,100">## &amp;#35;9—Upload
+|myHook&gt;[]</tw-passagedata><tw-passagedata pid="10" name="9—Upload" tags="water special-end" position="1400,700" size="100,100">## &amp;#35;9—Upload
 
 You can’t lose this research! You have to get the computer connected to the internet so you can upload it. 
 
@@ -1071,6 +1093,7 @@ The weight of the world falls on your head.
 (button:&quot;==X==&quot;)[[Notes]] 
 (button:&quot;==X==&quot;)[[Credits]] 
 (button:&quot;==X==&quot;)[[Story Tree]] 
+(button:&quot;==X==&quot;)[[Code]] 
 &lt;/div&gt;]]]]]|myHook&gt;[]</tw-passagedata><tw-passagedata pid="11" name="8—Flash Drive" tags="" position="1000,700" size="100,100">## &amp;#35;8—Flash Drive
 
 You frantically search your surroundings for a flash drive; you saw Jole with one just yesterday.
@@ -1194,40 +1217,40 @@ const timer = setInterval(update, 30);
 
 </tw-passagedata><tw-passagedata pid="12" name="Story Tree" tags="" position="1500,200" size="100,100">## Story Tree
 
-&lt;img src=&quot;https://firebasestorage.googleapis.com/v0/b/imagehost-astranova.firebasestorage.app/o/images%2FIrdUkiROt9PtsX68UxMrN36eBCX2%2F1760574461630_diagram.svg?alt=media&amp;token=236b72df-4101-42ca-934a-7ea7a1a75aac&quot; style=&quot;display: block; margin: 10px auto; width: 70vw;&quot; /&gt;</tw-passagedata><tw-passagedata pid="13" name="Code" tags="" position="1300,200" size="100,100">## Code
+&lt;img src=&quot;https://firebasestorage.googleapis.com/v0/b/imagehost-astranova.firebasestorage.app/o/images%2FIrdUkiROt9PtsX68UxMrN36eBCX2%2F1765395808013_Uilm-2025-12-10-194248.svg?alt=media&amp;token=eff8c57a-6f4c-401c-8cdc-537b9cc66edf&quot; style=&quot;display: block; margin: 10px auto; width: 70vw;&quot; /&gt;</tw-passagedata><tw-passagedata pid="13" name="Code" tags="" position="1300,200" size="100,100">## Code
 
 This story was written in &lt;a href=&quot;https://twinery.org/reference/en/&quot;&gt;Twine&lt;/a&gt;, using the story format &lt;a href=&quot;https://twine2.neocities.org&quot;&gt;Harlowe&lt;/a&gt;.
 
-Want to create a story like this? You can &lt;code class=&quot;choice&quot;&gt;make your own &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://twinery.org/2&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt; or view it on GitHub &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://github.com/Sim3-14159/Uilm&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt;.&lt;/code&gt; Have fun!</tw-passagedata><tw-passagedata pid="14" name="Game Over (Boar)" tags="" position="1700,900" size="100,100">Something warm and hard hits you, and you trip.
+Want to create a story like this? You can &lt;code class=&quot;choice&quot;&gt;make your own &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://twinery.org/2&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt; or view it on GitHub &lt;a style=&quot;text-decoration: none&quot; href=&quot;https://github.com/Sim3-14159/Uilm&quot;&gt;&lt;tw-link&gt;here&lt;/tw-link&gt;&lt;/a&gt;.&lt;/code&gt; Have fun!</tw-passagedata><tw-passagedata pid="14" name="Game Over (Boar)" tags="end" position="1700,900" size="100,100">Something warm and hard hits you, and you trip.
 
 You feel teeth burrowing themselves into your thigh, then more in your arm, then your back. You try to turn around and get up, but you cannot. You feel something wet and warm trickling down your forehead.
 
 You feel like going to sleep.
 
-The world slowly fades away into darkness, and you embrace it.
+The world slowly fades away into darkness, and you embrace it.</tw-passagedata><tw-passagedata pid="15" name="Notes" tags="" position="1100,200" size="100,100">## Notes
 
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-(button:&quot;==X==&quot;)[[Credits-&gt;Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree-&gt;Story Tree]] 
-
-
-</tw-passagedata><tw-passagedata pid="15" name="Notes" tags="" position="1100,200" size="100,100">## Notes
-
+### Inspiration
 The inspiration for the story came vaguely from *Jurassic Park*, by Michael Crichton, where a group of people find themselves fighting for survival on a tropical island. I chose a similar setting for my story, but very different plot elements: roundworms.
 
 I was inspired to use roundworms for three reasons: 
-&lt;ol style=&quot;gap: 10px;&quot;&gt;&lt;li&gt;I had recently read *Antarctica!* by Lily Simpson. In that book, a medicine was created with roundworms. This gave me the idea of using a fictional roundworm I called *Chordodes uilm*.&lt;/li&gt;&lt;li&gt;I had recently watched *Jurassic World Rebirth* (Yes, I am a *Jurassic* fan, but I was disappointed by this one), where the cure to a disease was found in DNA. I liked this idea, but instead of using another animalʼs DNA, which would present many challenges (e.g. incompatible number of chromosomes, genes controlling different traits etc.), I made my story so it would be more plausible; not using *uilm*ʼs DNA as a cure, but using *uilm*ʼs abilities to &#39;&#39;find&#39;&#39; the cure.&lt;/li&gt;&lt;li&gt;I had already done a few presentations on hairworms (a specific kind of roundworm) and already knew lots of things about them.&lt;/li&gt;&lt;/ol&gt;
-Roundworms of the genus *Chordodes* have many remarkable traits, including &lt;a href=&quot;https://en.wikipedia.org/wiki/Horizontal_gene_transfer&quot;&gt;horizontal gene transfer&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Biostasis&quot;&gt;biostasis&lt;/a&gt;. Although *C. uilm* is not a real species, many other roundworms have the same traits and abilities of *C. uilm*. Just google &lt;a href=&quot;https://google.com/search?q=horsehair+worms+HGT&quot;&gt;“horsehair worms HGT”&lt;/a&gt; for more details.
+&lt;ol style=&quot;gap: 10px;&quot;&gt;&lt;li&gt;I had recently read *Antarctica!* by Lily Simpson. In that book, a medicine was created with roundworms. This gave me the idea of using a fictional roundworm I called *Chordodes uilm*.&lt;/li&gt;&lt;li&gt;I had recently watched *Jurassic World Rebirth* (Yes, I am a *Jurassic* fan, but I was disappointed by this one), where the cure to a disease was found in DNA. I liked this idea, but instead of using another animalʼs DNA, which would present many challenges (e.g. incompatible number of chromosomes, genes controlling different traits etc.), I made my story so it would be more plausible; not using *uilm*ʼs DNA as a cure, but using *uilm*ʼs abilities to &#39;&#39;find&#39;&#39; the cure.&lt;/li&gt;&lt;li&gt;I had already done a few presentations on hairworms (a specific kind of roundworm) and already knew lots of things about them.&lt;/li&gt;&lt;/ol&gt;Roundworms of the genus *Chordodes* have many remarkable traits, including &lt;a href=&quot;https://en.wikipedia.org/wiki/Horizontal_gene_transfer&quot;&gt;horizontal gene transfer&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Biostasis&quot;&gt;biostasis&lt;/a&gt;. Although *C. uilm* is not a real species, many other roundworms have the same traits and abilities of *C. uilm*. Just google &lt;a href=&quot;https://google.com/search?q=horsehair+worms+HGT&quot;&gt;“horsehair worms HGT”&lt;/a&gt; for more details.
 
 Almost all of the events in this story are based off of things that have commonly happened in real life: wild boar maulings, riptides after tsunamis, incompatible file types on flash drives, etc.
 
 The timing of how long it would take for a tsunami to reach the Reysheys has been thoroughly researched and calculated, as well as other elements in the story.
 
-If you have any other questions about this story, feel free to talk about it &lt;a href=&quot;https://github.com/Sim3-14159/Uilm/discussions/1#discussion_comment_box
-&quot;&gt;here&lt;/a&gt; on GitHub.</tw-passagedata><tw-passagedata pid="16" name="12—Run" tags="" position="1200,900" size="100,100">## &amp;#35;12—Run
+
+### Details
+You may be wondering why you couldn’t upload the DNA sequences in **[[#8—Flash Drive-&gt;8—Flash Drive]]**. It’s because there was an incorrect file format: the computer you were using had a *UNIX*-based operating system, and the flash drive was meant only readable and writable with a *Windows* computer. I got the inspiration for this because it’s happened to me before!
+
+The centipede you got bitten by in **[[#3—Up the Mountain-&gt;3—Up the Mountain]]** was a &lt;a href=&quot;https://en.wikipedia.org/wiki/Scolopendra_subspinipes&quot;&gt;*Scolopendra subspinipes*&lt;/a&gt;. I chose this species for the story because it is very toxic, and not uncommon near Hawai’i. 
+
+The species of wild boar that chased you along the beach in **[[#7—Run-&gt;7—Run]]** was a &lt;a href=&quot;https://en.wikipedia.org/wiki/Wild_boar&quot;&gt;*Sus scrofa*&lt;/a&gt; (**Eurasian wild boar**). All wild boars on the planet are *Sus scrofa* or a subspecies of it.
+
+
+### Questions and Comments
+If you have any other questions about this story, feel free to talk about it &lt;a href=&quot;https://github.com/Sim3-14159/Uilm/discussions/1#new_comment_field
+&quot;&gt;here&lt;/a&gt; on GitHub.</tw-passagedata><tw-passagedata pid="16" name="12—Run" tags="end" position="1200,900" size="100,100">## &amp;#35;12—Run
 
 //It’s too late,// you think to yourself, //I don’t have time to go back to the lab.//
 
@@ -1237,17 +1260,7 @@ You feel teeth burrowing themselves into your thigh, then more in your arm, then
 
 You feel like going to sleep.
 
-The world slowly fades away into darkness, and you embrace it.
-
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-&lt;div class=&quot;link-container&quot;&gt;
-(button:&quot;==X==&quot;)[[Notes]] 
-(button:&quot;==X==&quot;)[[Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="11—Swim" tags="water" position="1100,900" size="100,100">## &amp;#35;11—Swim
+The world slowly fades away into darkness, and you embrace it.</tw-passagedata><tw-passagedata pid="17" name="11—Swim" tags="water" position="1100,900" size="100,100">## &amp;#35;11—Swim
 
 You jump into the dirty water and swim as fast as you can away from the beach. To your dismay, you see the boars following you into the water! You turn your head in front of you again.
 
@@ -1262,7 +1275,7 @@ You stop swimming, and you still see the shore getting farther away; you’re st
 The boars are trying to swim back to shore too.
 
 &lt;code class=&quot;choice&quot;&gt;What should you do? [[Swim straight to the beach-&gt;14—Straight Back]]  or [[swim to the side-&gt;15—To the Side]].&lt;/code&gt;
-</tw-passagedata><tw-passagedata pid="18" name="13—Climb" tags="" position="1300,900" size="100,100">## &amp;#35;13—Climb
+</tw-passagedata><tw-passagedata pid="18" name="13—Climb" tags="end" position="1300,900" size="100,100">## &amp;#35;13—Climb
 
 You dig your feet into the ground and immediately start running in the other direction.
 
@@ -1282,17 +1295,7 @@ Your last month of gene sequences are lost, but all your other research is safe,
 
 Four months later, the cure to cystic fibrosis is released to the world, and many lives are saved. You, Henry, Sarah, and Jole split a Nobel Peace Prize. Your face is put on postage stamps across the world.
 
-You write a book about your adventure, and you call it //**Uilm**//.
-
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-&lt;div class=&quot;link-container&quot;&gt;
-(button:&quot;==X==&quot;)[[Notes]] 
-(button:&quot;==X==&quot;)[[Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,375" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
+You write a book about your adventure, and you call it //**Uilm**//.</tw-passagedata><tw-passagedata pid="19" name="_FOOTER" tags="footer" position="200,375" size="100,100">&lt;span class=&quot;footer&quot; id=&quot;the-footer&quot;&gt;[[Copyright &amp;copy; 2025 Sim3-14159-&gt;Credits]]&lt;/span&gt;&lt;script&gt;
 let isIn = false;
 const elements = document.URL.split(&quot;/&quot;);
 
@@ -1303,8 +1306,30 @@ if (elements[value] === &quot;sim3-14159.github.io&quot;) { isIn = true; }
 if (!isIn) {
 	document.getElementById(&quot;the-footer&quot;).style.display = &quot;none&quot;;
 }
+&lt;/script&gt;&lt;div id=&quot;ending-reference-links&quot; style=&quot;display: none&quot;&gt;
+
+
+
+
+(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+(button:&quot;==X==&quot;)[[Code]] 
+&lt;/div&gt;
+&lt;/div&gt;{
+
+(set: _tags to (passage:)&#39;s tags)
+
+(if: _tags contains &quot;end&quot;)[
+&lt;script&gt;
+
+document.getElementById(&quot;ending-reference-links&quot;).style.display = &quot;block&quot;;
+
 &lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,125" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky" position="400,825" size="100,100">## &amp;#35;4—Fly Away
+] 
+}</tw-passagedata><tw-passagedata pid="20" name="_STARTUP" tags="startup" position="200,125" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Leave" tags="sky end" position="400,825" size="100,100">## &amp;#35;4—Fly Away
 
 You walk away. You feel sick, sweaty, and cold. Henry follows.
 
@@ -1322,17 +1347,7 @@ Days pass without news.
 
 The government deems the island unsafe until further notice, and shuts down the entire &lt;em&gt;Chordotes Uilm&lt;/em&gt; project.
 
-Later, you learn that they died, hours after you left.
-
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-&lt;div class=&quot;link-container&quot;&gt;
-(button:&quot;==X==&quot;)[[Notes]] 
-(button:&quot;==X==&quot;)[[Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="14—Straight Back" tags="water" position="1000,1025" size="100,100">## &amp;#35;14—Straight Back
+Later, you learn that they died, hours after you left.</tw-passagedata><tw-passagedata pid="22" name="14—Straight Back" tags="water end" position="1000,1025" size="100,100">## &amp;#35;14—Straight Back
 
 You can’t waste any time, even if it means going through the boars.
 
@@ -1350,17 +1365,7 @@ The shore slowly shrinks.
 
 You slow.
 
-Then stop.
-
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-&lt;div class=&quot;link-container&quot;&gt;
-(button:&quot;==X==&quot;)[[Notes]] 
-(button:&quot;==X==&quot;)[[Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="15—To the Side" tags="water" position="1125,1025" size="100,100">## &amp;#35;15—To the Side
+Then stop.</tw-passagedata><tw-passagedata pid="23" name="15—To the Side" tags="water end" position="1125,1025" size="100,100">## &amp;#35;15—To the Side
 
 You arenʼt stupid; you know that if you find yourself in a riptide, you swim to the side. So you do that, and promptly find yourself drawn far out from shore. A cold sweat starts, but hardly before it stops.
 
@@ -1382,17 +1387,7 @@ Your last month of gene sequences are lost, but all your other research is safe,
 
 Four months later, the cure to cystic fibrosis is released to the world, and many lives are saved. You, Henry, Sarah, and Jole split a Nobel Peace Prize. Your face is put on postage stamps across the world.
 
-You write a book about your adventure, and you call it //**Uilm**//.
-
-
-
-
-(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
-&lt;div class=&quot;link-container&quot;&gt;
-(button:&quot;==X==&quot;)[[Notes]] 
-(button:&quot;==X==&quot;)[[Credits]] 
-(button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Leave1" tags="" position="600,825" size="100,100">## &amp;#35;4—Up the Mountain
+You write a book about your adventure, and you call it //**Uilm**//.</tw-passagedata><tw-passagedata pid="24" name="Leave1" tags="special-end" position="600,825" size="100,100">## &amp;#35;4—Up the Mountain
 
 You trudge up the mountain. Henry follows you, silently.
 
@@ -1454,9 +1449,7 @@ Days pass without news.
 
 The government deems the island unsafe until further notice, and shuts down the entire &lt;em&gt;Chordotes Uilm&lt;/em&gt; project.
 
-Later, you learn that they died, hours after you left.
-
-
+No traces of Sarah or Jole are ever found.
 
 
 
@@ -1466,11 +1459,72 @@ Later, you learn that they died, hours after you left.
 (button:&quot;==X==&quot;)[[Notes]] 
 (button:&quot;==X==&quot;)[[Credits]] 
 (button:&quot;==X==&quot;)[[Story Tree]] 
-&lt;/div&gt;]]]</tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
+(button:&quot;==X==&quot;)[[Code]] 
+&lt;/div&gt;]]]</tw-passagedata><tw-passagedata pid="25" name="16—Grab the Computer" tags="special-end" position="875,825" size="100,100">## &amp;#35;16—Grab the Computer
 
-</tw-passagedata><tw-passagedata pid="26" name="17—Sorry, Computer" tags="" position="875,950" size="100,100">## &amp;#35;16—Sorry, Computer, I have to go so I donʼt drown in a Tsunami and Die, because I Would Rather be Alive than Dead
+You know what you need to do: you grab the a bunched quantity of cables and yank them out of the back of the computer, a few pieces of plastic popping off as you do so; you grip the computer a single hand and wedge it under your shoulder; and you run.
 
-</tw-passagedata><tw-passagedata pid="27" name="_HEADER" tags="header" position="200,250" size="100,100">&lt;div id=&quot;popup-notification-overlay&quot;&gt;&lt;/div&gt;&lt;div id=&quot;popup-notification&quot;&gt;&lt;h4&gt;Please view in fullscreen mode for best experience&lt;/h4&gt;&lt;button onclick=&quot;goFullscreen(); hidePopup()&quot;&gt;OK&lt;/button&gt;&lt;button onclick=&quot;hidePopup()&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;</tw-passagedata></tw-storydata>
+Then you sprint.
+
+You don&#39;t look back; wherever it is, it&#39;s too close.
+
+Then you hear the sound of the wave, like a Freight train, careening down its tracks, getting closer, and closer, not stopping.
+
+Then a rising, like the trains were flying up above you.
+
+Then a crash, the lab behind you splintering like a toothpick.
+
+|down-arrow&gt;[
+    (link: &#39;(align:&quot;=&gt;&lt;=&quot;)[&lt;span class=&quot;down-arrow&quot;&gt;➤&lt;/span&gt;]&#39;)[
+        (replace: ?down-arrow)[(live: 0s)[(replace: ?slamText)[(text-style:&quot;bold&quot;)[&lt;span class=&quot;slam&quot;&gt;Whack!&lt;/span&gt;]](stop:)
+]
+|slamText&gt;[&lt;!-- placeholder --&gt;] 
+
+
+Then, the train hits you, and things go black.
+
+
+
+
+(button:&quot;=X=&quot;)[&lt;span class=&quot;end&quot; style=&quot;width: 110px;&quot;&gt;[[Start Over-&gt;0—Uilm]] &lt;/span&gt;]
+&lt;div class=&quot;link-container&quot;&gt;
+(button:&quot;==X==&quot;)[[Notes]] 
+(button:&quot;==X==&quot;)[[Credits]] 
+(button:&quot;==X==&quot;)[[Story Tree]] 
+(button:&quot;==X==&quot;)[[Code]] 
+&lt;/div&gt;]]]|myHook&gt;[]</tw-passagedata><tw-passagedata pid="26" name="17—Sorry, Computer" tags="end" position="875,950" size="100,100">## &amp;#35;16—Sorry, Computer, I have to go so I donʼt get crushed in a Tsunami and drown and Die, because I Would Rather be Alive than Dead
+
+There’s no time to grab the computer! What are you thinking! You have to get out!
+
+You hear the sound of a train, coming closer and closer, gettting louder and louder. You don’t need any more encouragement.
+
+You run faster
+
+Your legs burn with exhaustion.
+
+Your calves are stiff as wood.
+
+Your feet are lead.
+
+You hear the destruction behind you; you’re running too fast to see anything in front of you.
+
+Finally, the water slows, and so do you. You see Sarah, Henry, and Jole a little ways away from you. You stumble toward them, your energy spent.
+
+After hours of waiting, the water recedes; you and Sarah and Jole and Henry hike down the mountain. The destruction unfurls before your eyes, bit by bit. The lab is a pile of unstable planks, bent rebar, and broken glass. Palm trees are cracked in half. The plane (your only hope of escape) is comparable to an aluminum can in a hydraulic press—which, you think, is partially true, as the plane was aluminum, and water did actually crush it. You laugh to yourself, not out of joy, but out of hopelessness. You can&#39;t even process how you feel.
+
+Now, you look down at where the lab was, where the computer was, but it is all covered in water. 
+
+You are glad you left it.
+
+The next day, a rescue helicopter comes. You sustain minor injuries which you’ll keep for the rest of your life, but at least you’re alive. 
+
+---
+
+After such a close call, the government deems the Reysheys “unsafe, until further notice from your local government officials,” and nobody has visited the islands since then.
+
+The entire *Chordodes uilm* project was cancelled, but you use the money you earned before the incident to start another research lab. Sadly, it never took off, and you went bankrupt. 
+
+You live on the streets to this day.</tw-passagedata><tw-passagedata pid="27" name="_HEADER" tags="header" position="200,250" size="100,100">&lt;div id=&quot;popup-notification-overlay&quot;&gt;&lt;/div&gt;&lt;div id=&quot;popup-notification&quot;&gt;&lt;h4&gt;Please view in fullscreen mode for best experience&lt;/h4&gt;&lt;button onclick=&quot;goFullscreen(); hidePopup()&quot;&gt;OK&lt;/button&gt;&lt;button onclick=&quot;hidePopup()&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
